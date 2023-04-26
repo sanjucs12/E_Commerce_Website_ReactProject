@@ -1,9 +1,16 @@
+import { Badge, Button } from "react-bootstrap";
+import CartIcon from "./CartIcon";
+
 function HeaderCartButton() {
   return (
-    <button>
-      <span></span>
+    <Button variant="outline-success" size="sm">
+      <span>
+        <Badge bg="warning">3</Badge>
+        <CartIcon/>
+      </span>
       <span>Your cart</span>
-      <span>3</span>
-    </button>
+    </Button>
   );
 }
+
+export default HeaderCartButton;

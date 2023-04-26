@@ -1,4 +1,5 @@
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import HeaderCartButton from "./HeaderCartButton";
 
 function NavigationBar() {
   return (
@@ -13,7 +14,7 @@ function NavigationBar() {
             <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           <Nav>
-            <Button variant="primary" href="/cart"><i className="bi bi-cart"></i> Cart</Button>
+            <HeaderCartButton />
           </Nav>
         </Navbar.Collapse>
       </Container>

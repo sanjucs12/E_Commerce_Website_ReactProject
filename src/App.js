@@ -1,10 +1,12 @@
-import React from "react";
+import {Fragment} from "react";
 import Header from "./Components/Header/Header";
+import AvailableMusicItems from "./Components/Music/AvailableMusicItems";
 
 function App() {
-  return <div>
+  return <Fragment>
     <Header />
-  </div>;
+    <AvailableMusicItems />
+  </Fragment>;
 }
 
 export default App;
