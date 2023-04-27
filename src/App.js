@@ -1,8 +1,9 @@
-import { Fragment,useState } from "react";
+import { useState } from "react";
 import Header from "./Components/Header & Footer/Header";
 import AvailableMusicItems from "./Components/Music/AvailableMusicItems";
 import Footer from "./Components/Header & Footer/Footer";
 import Cart from "./Components/Cart/Cart";
+import CartProvider from "./Store/CartProvider";
 
 function App() {
 
@@ -15,12 +16,12 @@ function App() {
  }
 
   return (
-    <Fragment>
+    <CartProvider>
       <Header onShowCart={showCartHandler}/>
       {cartIsShown && <Cart onClose={hideCartHandler}/>}
       <AvailableMusicItems />
       <Footer />
-    </Fragment>
+    </CartProvider>
   );
 }
 

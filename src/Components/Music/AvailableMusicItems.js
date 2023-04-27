@@ -36,7 +36,7 @@ const DUMMY_ITEMS = [
 function AvailableMusicItems() {
   const musicList = DUMMY_ITEMS.map((music) => (
     <Col key={music.id} xs={12} sm={6} md={4} lg={3}>
-      <MusicItem title={music.title} price={music.price} image={music.image} />
+      <MusicItem id={music.id} title={music.title} price={music.price} image={music.image} />
     </Col>
   ));
 
