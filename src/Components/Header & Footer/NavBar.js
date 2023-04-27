@@ -3,7 +3,7 @@ import HeaderCartButton from "./HeaderCartButton";
 
 function NavigationBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" fixed='top'>
       <Container>
         <Navbar.Brand href="/">My E-Commerce Website</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
