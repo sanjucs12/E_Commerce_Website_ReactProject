@@ -59,6 +59,10 @@ function Cart(props) {
     cartCtx.addItem({ ...item, quantity: 1 });
   };
 
+  const orderItemHandler = () => {
+    alert("THE MUSIC IS ON THE WAY");
+  };
+
   const cartItems = (
     <ListGroup>
       {cartCtx.items.map((item) => (
@@ -99,7 +103,11 @@ function Cart(props) {
           <Button variant="secondary" onClick={props.onClose}>
             Close
           </Button>
-          {hasItems && <Button variant="primary">Order</Button>}
+          {hasItems && (
+            <Button variant="primary" onClick={orderItemHandler}>
+              Order
+            </Button>
+          )}
         </Modal.Footer>
       </div>
     </Modal>
