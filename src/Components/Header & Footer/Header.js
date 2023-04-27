@@ -1,8 +1,8 @@
 import NavigationBar from "./NavBar";
-function Header() {
+function Header(props) {
   return (
     <header>
-      <NavigationBar />
+      <NavigationBar onShowCart={props.onShowCart}/>
       <div
         className="d-flex align-items-center justify-content-center flex-grow-1 bg-secondary"
         style={{ height: "30vh" }}

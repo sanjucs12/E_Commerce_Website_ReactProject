@@ -35,7 +35,7 @@ const dummyCartItems = [
   },
 ];
 
-function Cart() {
+function Cart(props) {
   const cartItems = (
     <ListGroup>
       {dummyCartItems.map((item) => (
@@ -46,8 +46,11 @@ function Cart() {
 
   return (
     <Modal show={true} onHide={() => {}}>
-      <Modal.Header closeButton>
+      <Modal.Header>
         <Modal.Title>Your Cart</Modal.Title>
+        <Button className="float-right" onClick={props.onClose}>
+          X
+        </Button>
       </Modal.Header>
       <Modal.Body>
         {cartItems}
@@ -57,7 +60,9 @@ function Cart() {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary">Close</Button>
+        <Button variant="secondary" onClick={props.onClose}>
+          Close
+        </Button>
         <Button variant="primary">Order</Button>
       </Modal.Footer>
     </Modal>

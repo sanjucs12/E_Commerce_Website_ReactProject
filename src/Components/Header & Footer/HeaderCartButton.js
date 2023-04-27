@@ -1,9 +1,9 @@
 import { Badge, Button } from "react-bootstrap";
 import CartIcon from "./CartIcon";
 
-function HeaderCartButton() {
+function HeaderCartButton(props) {
   return (
-    <Button variant="outline-success" size="lg">
+    <Button variant="outline-success" size="lg" onClick={props.onClick}>
       <span>
         <Badge bg="warning">3</Badge>
         {/* <CartIcon/> */}

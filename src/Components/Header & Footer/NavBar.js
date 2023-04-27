@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import HeaderCartButton from "./HeaderCartButton";
 
-function NavigationBar() {
+function NavigationBar(props) {
   return (
     <Navbar bg="light" expand="lg" fixed='top'>
       <Container>
@@ -14,7 +14,7 @@ function NavigationBar() {
             <Nav.Link href="/about">About</Nav.Link>
           </Nav>
           <Nav>
-            <HeaderCartButton />
+            <HeaderCartButton onClick={props.onShowCart}/>
           </Nav>
         </Navbar.Collapse>
       </Container>
