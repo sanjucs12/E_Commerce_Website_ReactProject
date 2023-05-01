@@ -1,27 +1,17 @@
-import { useState } from "react";
-import Header from "./Components/Header & Footer/Header";
-import AvailableMusicItems from "./Components/Music/AvailableMusicItems";
-import Footer from "./Components/Header & Footer/Footer";
-import Cart from "./Components/Cart/Cart";
-import CartProvider from "./Store/CartProvider";
+import Store from "./Pages/Store";
+import About from "./Pages/About";
+import Home from "./Pages/Home";
+import { BrowserRouter as Main, Route, Routes } from "react-router-dom";
 
 function App() {
-
- const [cartIsShown,setCartIsShown] = useState(false);
- const showCartHandler = ()=>{
-  setCartIsShown(true)
- }
- const hideCartHandler = ()=>{
-  setCartIsShown(false)
- }
-
   return (
-    <CartProvider>
-      <Header onShowCart={showCartHandler}/>
-      {cartIsShown && <Cart onClose={hideCartHandler}/>}
-      <AvailableMusicItems />
-      <Footer />
-    </CartProvider>
+    <Main>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/About" element={<About />} />
+        <Route exact path="/Store" element={<Store />} />
+      </Routes>
+    </Main>
   );
 }
 
