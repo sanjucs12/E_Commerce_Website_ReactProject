@@ -9,10 +9,23 @@ const ContactUs = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Name:", name);
-    console.log("Email:", email);
-    console.log("Phone:", phone);
-    // You can add your API call or any other functionality here
+    const contacts = {
+      name: name,
+      email: email,
+      phone: phone,
+    };
+
+    fetch(
+      "https://react-ecommorce-website-default-rtdb.firebaseio.com/contactus.json",
+      {
+        method: "POST",
+        body: JSON.stringify(contacts),
+        header: {
+          "context-type": "application/json",
+        },
+      }
+    );
+    console.log(contacts);
   };
 
   return (
