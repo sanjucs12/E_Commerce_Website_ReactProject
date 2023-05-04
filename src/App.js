@@ -5,31 +5,27 @@ import ContactUs from "./Pages/ContactUs";
 import { Route, Routes } from "react-router-dom";
 import React from "react";
 import NavigationBar from "./Components/Header & Footer/NavBar";
+import { useState } from "react";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
+  const [cartIsShown, setCartIsShown] = useState(false);
+  const showCartHandler = () => {
+    setCartIsShown(true);
+  };
+  const hideCartHandler = () => {
+    setCartIsShown(false);
+  };
   return (
     <React.Fragment>
-      <NavigationBar />
+      <NavigationBar onShowCart={showCartHandler} />
+      {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/About" element={<About />} />
         <Route exact path="/Store" element={<Store />} />
         <Route exact path="/ContactUs" element={<ContactUs />} />
       </Routes>
-      {/* <Routes>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/About">
-          <About />
-        </Route>
-        <Route path="/Store">
-          <Store />
-        </Route>
-        <Route path="/ContactUs">
-          <ContactUs />
-        </Route>
-      </Routes> */}
     </React.Fragment>
   );
 }

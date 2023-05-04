@@ -1,14 +1,8 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import HeaderCartButton from "./HeaderCartButton";
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function NavigationBar(props) {
-  const [cartButtonIsShown, setCartButtonIsShown] = useState(true);
-  const hideCartButtonHandler = () => {
-    setCartButtonIsShown(false);
-  };
-
   return (
     <Navbar bg="light" expand="lg" fixed="top">
       <Container>
@@ -33,9 +27,7 @@ function NavigationBar(props) {
             </NavLink>
           </Nav>
           <Nav>
-            {cartButtonIsShown && (
-              <HeaderCartButton onClick={props.onShowCart} />
-            )}
+            <HeaderCartButton onClick={props.onShowCart} />
           </Nav>
         </Navbar.Collapse>
       </Container>

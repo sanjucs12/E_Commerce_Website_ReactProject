@@ -7,22 +7,24 @@ import CartProvider from "../Store/CartProvider";
 import NavigationBar from "../Components/Header & Footer/NavBar";
 
 function Store() {
-  const [cartIsShown, setCartIsShown] = useState(false);
-  const showCartHandler = () => {
-    setCartIsShown(true);
-  };
-  const hideCartHandler = () => {
-    setCartIsShown(false);
-  };
+  // const [cartIsShown, setCartIsShown] = useState(false);
+  // const showCartHandler = () => {
+  //   setCartIsShown(true);
+  // };
+  // const hideCartHandler = () => {
+  //   setCartIsShown(false);
+  // };
 
   return (
-    <CartProvider>
-      <NavigationBar onShowCart={showCartHandler} />
+    <div>
+      {/* <CartProvider> */}
+      {/* <NavigationBar onShowCart={showCartHandler} /> */}
       <Header />
-      {cartIsShown && <Cart onClose={hideCartHandler} />}
+      {/* {cartIsShown && <Cart onClose={hideCartHandler} />} */}
       <AvailableMusicItems />
       <Footer />
-    </CartProvider>
+      {/* </CartProvider> */}
+    </div>
   );
 }
 
