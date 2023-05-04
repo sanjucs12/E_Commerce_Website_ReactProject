@@ -5,7 +5,7 @@ function About() {
 
   return (
     <>
-      <NavigationBar/>
+      {/* <NavigationBar/> */}
       <Container className="pt-5">
         <div
           className="d-flex align-items-center justify-content-center flex-grow-1 bg-secondary"

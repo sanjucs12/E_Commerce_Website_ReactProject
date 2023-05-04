@@ -30,7 +30,7 @@ const ContactUs = () => {
 
   return (
     <div>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <Container className="d-flex justify-content-center mt-5 pt-5">
         <Form onSubmit={handleSubmit}>
           <Form.Group controlId="formName">

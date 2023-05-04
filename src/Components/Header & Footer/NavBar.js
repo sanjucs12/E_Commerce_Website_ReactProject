@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import HeaderCartButton from "./HeaderCartButton";
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function NavigationBar(props) {
   const [cartButtonIsShown, setCartButtonIsShown] = useState(true);
