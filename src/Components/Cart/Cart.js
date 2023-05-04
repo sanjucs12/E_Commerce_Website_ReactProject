@@ -60,7 +60,7 @@ function Cart(props) {
   };
 
   const orderItemHandler = () => {
-    alert("THE MUSIC IS ON THE WAY");
+    alert("Thanks for Ordering");
   };
 
   const cartItems = (

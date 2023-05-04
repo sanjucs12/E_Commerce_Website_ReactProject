@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
-import NavigationBar from "../Components/Header & Footer/NavBar";
 
 const ContactUs = () => {
   const [name, setName] = useState("");
@@ -26,13 +25,15 @@ const ContactUs = () => {
       }
     );
     console.log(contacts);
+    alert("We will contact you soon");
   };
 
   return (
     <div>
-      {/* <NavigationBar /> */}
+      <h2>Please fill the below details. We will react you Soon</h2>
       <Container className="d-flex justify-content-center mt-5 pt-5">
         <Form onSubmit={handleSubmit}>
+          <h2>Please fill the below details. We will reach you soon</h2>
           <Form.Group controlId="formName">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -40,6 +41,7 @@ const ContactUs = () => {
               placeholder="Enter name"
               value={name}
               onChange={(event) => setName(event.target.value)}
+              required
             />
           </Form.Group>
 
@@ -50,6 +52,7 @@ const ContactUs = () => {
               placeholder="Enter email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              required
             />
           </Form.Group>
 
@@ -60,6 +63,7 @@ const ContactUs = () => {
               placeholder="Enter phone number"
               value={phone}
               onChange={(event) => setPhone(event.target.value)}
+              required
             />
           </Form.Group>
 
