@@ -1,4 +1,4 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import HeaderCartButton from "./HeaderCartButton";
 import { NavLink } from "react-router-dom";
 
@@ -24,6 +24,9 @@ function NavigationBar(props) {
             </NavLink>
             <NavLink to="/ContactUs" className="nav-link">
               Contact US
+            </NavLink>
+            <NavLink to="/LoginPage" className="nav-link">
+              <Button>LogIn</Button>
             </NavLink>
           </Nav>
           <Nav>

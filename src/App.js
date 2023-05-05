@@ -7,6 +7,7 @@ import React from "react";
 import NavigationBar from "./Components/Header & Footer/NavBar";
 import { useState } from "react";
 import Cart from "./Components/Cart/Cart";
+import LoginPage from "./Pages/Login";
 
 function App() {
   const [cartIsShown, setCartIsShown] = useState(false);
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/About" element={<About />} />
         <Route exact path="/Store" element={<Store />} />
         <Route exact path="/ContactUs" element={<ContactUs />} />
+        <Route exact path="/LoginPage" element={<LoginPage />} />
       </Routes>
     </React.Fragment>
   );
