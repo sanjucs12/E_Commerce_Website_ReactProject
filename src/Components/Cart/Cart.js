@@ -14,6 +14,7 @@ import { useContext } from "react";
 import CartContext from "../../Store/cart-context";
 import CartItem from "./CartItem";
 
+
 // const dummyCartItems = [
 //   {
 //     id: "a1",

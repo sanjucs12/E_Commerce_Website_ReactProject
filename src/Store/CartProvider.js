@@ -1,5 +1,7 @@
 import CartContext from "./cart-context";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
+
+///////////////////HANDLING CART ITEMS////////////////////////////////
 
 const defaultCartState = {
   items: [],
@@ -36,25 +38,28 @@ const cartReducer = (state, action) => {
     };
   }
 
-if(action.type==='REMOVE'){
+  if (action.type === "REMOVE") {
     const existingCartItemIndex = state.items.findIndex(
-        (item) => item.id === action.id
-      );
-      const existingCartItem = state.items[existingCartItemIndex];
-      const updatedTotalAmount= state.totalAmount - existingCartItem.price;
-      let updatedItems;
-      if(existingCartItem.quantity===1){
-        updatedItems=state.items.filter((item)=>item.id!==action.id);
-      } else {
-        const updatedItem = {...existingCartItem,quantity:existingCartItem.quantity-1};
-        updatedItems=[...state.items];
-        updatedItems[existingCartItemIndex]=updatedItem;
-      }
-      return {
-        items:updatedItems,
-        totalAmount:updatedTotalAmount
-      }
-}
+      (item) => item.id === action.id
+    );
+    const existingCartItem = state.items[existingCartItemIndex];
+    const updatedTotalAmount = state.totalAmount - existingCartItem.price;
+    let updatedItems;
+    if (existingCartItem.quantity === 1) {
+      updatedItems = state.items.filter((item) => item.id !== action.id);
+    } else {
+      const updatedItem = {
+        ...existingCartItem,
+        quantity: existingCartItem.quantity - 1,
+      };
+      updatedItems = [...state.items];
+      updatedItems[existingCartItemIndex] = updatedItem;
+    }
+    return {
+      items: updatedItems,
+      totalAmount: updatedTotalAmount,
+    };
+  }
 
   return defaultCartState;
 };
@@ -73,11 +78,33 @@ function CartProvider(props) {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
+  //////////////Handling AUTHORIZATION//////////////////
+
+  const initialToken = localStorage.getItem('token');
+  const [token, setToken] = useState(initialToken);
+
+  const userIsLoggedIn = !!token;
+
+  const loginHandler = (token) => {
+    setToken(token);
+    localStorage.setItem('token',token)
+  };
+
+  const logoutHandler = () => {
+    setToken(null);
+    localStorage.removeItem('token');
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+
+    token: token,
+    isLoggedIn: userIsLoggedIn,
+    login: loginHandler,
+    logout: logoutHandler,
   };
   return (
     <CartContext.Provider value={cartContext}>
