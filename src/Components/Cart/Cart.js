@@ -1,7 +1,3 @@
-import albumb1 from "../Assets/Album 1.png";
-import albumb2 from "../Assets/Album 2.png";
-import albumb3 from "../Assets/Album 3.png";
-import albumb4 from "../Assets/Album 4.png";
 import {
   Modal,
   Button,

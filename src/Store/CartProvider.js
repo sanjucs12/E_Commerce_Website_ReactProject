@@ -81,18 +81,25 @@ function CartProvider(props) {
   //////////////Handling AUTHORIZATION//////////////////
 
   const initialToken = localStorage.getItem('token');
+  const emailState= localStorage.getItem('email');
+
   const [token, setToken] = useState(initialToken);
+  const[email,setEmail]=useState(emailState);
 
   const userIsLoggedIn = !!token;
 
-  const loginHandler = (token) => {
+  const loginHandler = (token,email) => {
     setToken(token);
-    localStorage.setItem('token',token)
+    setEmail(email);
+    localStorage.setItem('token',token);
+    localStorage.setItem('email',email)
   };
 
   const logoutHandler = () => {
     setToken(null);
+    setEmail('');
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
   };
 
   const cartContext = {
@@ -105,6 +112,8 @@ function CartProvider(props) {
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
+
+    email:email
   };
   return (
     <CartContext.Provider value={cartContext}>

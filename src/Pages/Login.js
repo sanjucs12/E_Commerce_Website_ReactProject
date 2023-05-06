@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const LoginPage = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const authCtx = useContext(CartContext);
 
@@ -67,8 +67,8 @@ const LoginPage = () => {
       })
       .then((data) => {
         console.log(data);
-        authCtx.login(data.idToken);
-        navigate('/Store');
+        authCtx.login(data.idToken, data.email);
+        navigate("/Store");
       })
       .catch((err) => {
         alert(err.message);
@@ -105,7 +105,7 @@ const LoginPage = () => {
           <Form.Control
             type="password"
             placeholder="Password"
-            minLength='6'
+            minLength="6"
             ref={passwordInputRef}
             required
           />

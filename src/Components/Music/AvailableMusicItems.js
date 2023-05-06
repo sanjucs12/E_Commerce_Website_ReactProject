@@ -53,10 +53,11 @@ function AvailableMusicItems() {
   const musicList = DUMMY_ITEMS.map((music) => (
     <Col key={music.id} xs={12} sm={6} md={4} lg={3}>
       <MusicItem
-        id={music.id}
-        title={music.title}
-        price={music.price}
-        image={music.image}
+        // id={music.id}
+        // title={music.title}
+        // price={music.price}
+        // image={music.image}
+        item={music}
       />
     </Col>
   ));
