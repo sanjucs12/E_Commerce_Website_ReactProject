@@ -10,40 +10,10 @@ import { useContext } from "react";
 import CartContext from "../../Store/cart-context";
 import CartItem from "./CartItem";
 
-
-// const dummyCartItems = [
-//   {
-//     id: "a1",
-//     title: "Colors",
-//     price: 100,
-//     image: <img src={albumb1} />,
-//     quantity: 2,
-//   },
-//   {
-//     id: "a2",
-//     title: "Black and white Colors",
-//     price: 50,
-//     image: <img src={albumb2} />,
-//     quantity: 2,
-//   },
-//   {
-//     id: "a3",
-//     title: "Yellow and Black Colors",
-//     price: 70,
-//     image: <img src={albumb3} />,
-//     quantity: 2,
-//   },
-//   {
-//     id: "a4",
-//     title: "Blue Color",
-//     price: 100,
-//     image: <img src={albumb4} />,
-//     quantity: 2,
-//   },
-// ];
-
-function Cart(props) {
+function Cart(props, {}) {
   const cartCtx = useContext(CartContext);
+  const cartDataArray = [props.cartData];
+  console.log(props.cartData);
 
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
@@ -62,7 +32,8 @@ function Cart(props) {
 
   const cartItems = (
     <ListGroup>
-      {cartCtx.items.map((item) => (
+      {/* {cartDataArray.map((item) => ( */}
+      // {cartCtx.items.map((item) => (
         <CartItem
           key={item.id}
           title={item.title}
