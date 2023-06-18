@@ -1,5 +1,7 @@
 # E_Commerce_Website_ReactProject
 https://my-ecommerce-website-react-app.netlify.app/
+login mail : test@gmail.com
+login password : 111111
 
  A simple platform to buy and sell products.
 --Created ecommerce website and added firebase authentication.
